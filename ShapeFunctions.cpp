@@ -1,8 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <cassert>
-#include <fstream>
-#include <iomanip>
 
 #include "ShapeFunctions.h"
 
