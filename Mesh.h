@@ -15,6 +15,9 @@ public:
 	void ReadFile(std::string fileName);
 	//assign coordinates, flux, etc to individual elements
 	void Discretize();
+
+	void ApplyFluxToElement(const std::vector<int>& indices, 
+		std::vector<std::pair<int, double>>& elementFlux);
 protected:
 	//columns of globalCoordinates is x and y values
 	std::vector<std::vector<double>> globalCoordinates;
@@ -29,7 +32,7 @@ protected:
 	double k;
 
 	//flux location is nx2 vector, each column is the start and last node of boundary segment
-	std::vector<std::vector<double>> fluxLocation;
+	std::vector<std::vector<int>> fluxLocation;
 	std::vector<double> fluxValue;
 };
 

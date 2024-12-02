@@ -8,6 +8,7 @@ node3 coord: 0.0 0.0
 node4 coord: -10.0 0.0
 node5 coord: 10.0 -10.0
 node6 coord: 10.0 0.0
-numflux: 2
+numflux: 3
 flux1 location: 4 3 value: 10.0
-flux2 location: 3 6 value: 10.0
+flux2 location: 3 6 value: 14.0
+flux3 location: 6 5 value: 12.0

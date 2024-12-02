@@ -9,7 +9,7 @@ Mesh::Mesh(std::string fileName) {
 	Discretize();
 
 	//assemble
-
+	std::cout << "fuck" << std::endl;
 	//solve
 }
 
@@ -52,7 +52,7 @@ void Mesh::ReadFile(std::string fileName) {
 	int numflux;
 	infile >> junk >> numflux;
 
-	fluxLocation.resize(2, std::vector<double>(numflux, 0.0));
+	fluxLocation.resize(numflux, std::vector<int>(2, 0));
 	fluxValue.resize(numflux, 0.0);
 
 	for (size_t i = 0; i < numflux; i++) {
@@ -70,14 +70,68 @@ void Mesh::Discretize() {
 
 	for (size_t elem = 0; elem < numelem; elem++) {
 
-		std::vector<std::vector<double>> elemcoord(2, std::vector<double> (4));
+		std::vector<std::vector<double>> elemCoord(2, std::vector<double> (4));
 		//populate temporary container for element global coordinates
 		for (size_t i = 0; i < 2; i++) {
 			for (size_t j = 0; j < 4; j++) {
-				elemcoord[i][j] = globalCoordinates[i][connectivity[elem][j]-1];
+				elemCoord[i][j] = globalCoordinates[i][connectivity[elem][j]-1];
 			}
 		}
 
-		elements.emplace_back(k, connectivity[elem], elemcoord);
+		//need to determine if any of the applied flux boundary conditions are applied on an edge of the element
+		//there can be multiple flux conditions per element, store them in a vector of std::pairs
+		//first is the local edge ex) edge 1 is between local node 1 and 2
+		std::vector<std::pair<int, double>> elemFlux;
+		ApplyFluxToElement(connectivity[elem], elemFlux);
+
+		elements.emplace_back(k, connectivity[elem], elemCoord, elemFlux);
+	}
+}
+
+void Mesh::ApplyFluxToElement(const std::vector<int>& indices, 
+	std::vector<std::pair<int, double>>& elementFlux) {
+
+	//loop over every flux condition to see if the condition applies to the element
+	for (std::size_t i = 0; i < fluxLocation.size(); i++) {
+		int startNode = fluxLocation[i][0];
+		int endNode = fluxLocation[i][1];
+		double fluxVal = fluxValue[i];
+
+		//check if both start and end nodes are in element node indices
+		std::vector<int>::const_iterator it1 = std::find(indices.begin(),
+			indices.end(), startNode);
+		std::vector<int>::const_iterator it2 = std::find(indices.begin(),
+			indices.end(), endNode);
+		//if both iterators are not equal to the end indice (which indicates start and end node both exist)
+		if (it1 != indices.end() && it2 != indices.end()) {
+			int edgeIndex = -1;
+			//iterators are pointers to location within the indices vector. doing the subtraction is actually determining the distance between the iterator and the start of the vector, thereby determining which local node it corresponds to
+	
+			// Check for edge 1 (bottom edge: from BL to BR)
+			if ((it1 - indices.begin() == 0 && it2 - indices.begin() == 1) || 
+				(it1 - indices.begin() == 1 && it2 - indices.begin() == 0)) {
+				edgeIndex = 1;
+			}
+			// Check for edge 2 (right edge: from BR to TR)
+			else if ((it1 - indices.begin() == 1 && it2 - indices.begin() == 2) || 
+				(it1 - indices.begin() == 2 && it2 - indices.begin() == 1)) {
+				edgeIndex = 2;
+			}
+			// Check for edge 3 (top edge: from TR to TL)
+			else if ((it1 - indices.begin() == 2 && it2 - indices.begin() == 3) || 
+				(it1 - indices.begin() == 3 && it2 - indices.begin() == 2)) {
+				edgeIndex = 3;
+			}
+			// Check for edge 4 (left edge: from TL to BL)
+			else if ((it1 - indices.begin() == 3 && it2 - indices.begin() == 0) || 
+				(it1 - indices.begin() == 0 && it2 - indices.begin() == 3)) {
+				edgeIndex = 4;
+			}
+
+			// If an edge was found, store the flux for this element
+			if (edgeIndex != -1) {
+				elementFlux.push_back(std::make_pair(edgeIndex, fluxVal));
+			}
+		}
 	}
 }

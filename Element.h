@@ -9,8 +9,7 @@
 class Element
 {
 public:
-	//Element();
-	Element(double k, std::vector<int>& indices, std::vector<std::vector<double>>& coordinates);
+	Element(double k, std::vector<int>& indices, std::vector<std::vector<double>>& coordinates, std::vector<std::pair<int, double>>& flux);
 protected:
 	//constitutive coefficient
 	double k;
@@ -19,9 +18,9 @@ protected:
 	std::vector<int> nodeIndices;
 	//global coordinates of the element nodes. 4x2 where each column is x y 
 	std::vector<std::vector<double>> nodeCoordinates;
-	//some container for the forces applied
-
-
+	//pair container for flux applied. first value is the local edge applied, second is value
+	std::vector<std::pair<int, double>> elementFlux;
+	bool isFlux;
 
 	std::vector<std::vector<double>> stiffnessMatrix;
 	std::vector<double> forceVector;
