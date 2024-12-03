@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <vector>
 #include <cassert>
 
@@ -21,6 +22,12 @@ std::vector<std::vector<T>> transpose(const std::vector<std::vector<T>>& matrix)
 	return output;
 }
 
+template<typename T>
+double determinant2x2(const std::vector<std::vector<T>>& matrix) {
+	assert(matrix.size() == 2 && matrix[0].size() == 2 && "Matrix must be 2x2");
+	return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+}
+
 //invert 2x2 matrix and return new matrix
 template<typename T>
 std::vector<std::vector<T>> inverse2x2(std::vector<std::vector<T>>& matrix) {
@@ -38,13 +45,7 @@ std::vector<std::vector<T>> inverse2x2(std::vector<std::vector<T>>& matrix) {
 }
 
 template<typename T>
-double determinant2x2(const std::vector<std::vector<T>>& matrix) {
-	assert(matrix.size() == 2 && matrix[0].size() == 2 && "Matrix must be 2x2");
-	return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
-}
-
-template<typename T>
-void PrintMatrix(const std::vector<std::vector<T>>& matrix) {
+void printMatrix(const std::vector<std::vector<T>>& matrix) {
 	size_t rows = matrix[0].size();
 	size_t cols = matrix.size();    
 
@@ -84,4 +85,15 @@ std::vector<std::vector<T>> multiplyMatrices(const std::vector<std::vector<T>>& 
 	return output;
 }
 
+template<typename T>
+std::vector<std::vector<T>>& operator*= (std::vector<std::vector<T>>& matrix, T scalar) {
+	for (auto& row : matrix) {
+		for (auto& value : row) {
+			value *= scalar;
+		}
+	}
+	return matrix;
+}
+
 //some function to return the local coordinates of every gauss point for 2x2 quadrature
+void GaussCoordinates(std::vector<std::vector<double>>& coords, std::vector<double>& weights);
