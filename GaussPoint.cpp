@@ -1,6 +1,7 @@
 #include "GaussPoint.h"
 #include "Utils.h"
 
+//when gausspoint is constructed automatically calculate the product of BT, B, J
 GaussPoint::GaussPoint(double x, double e, double w, const std::vector<std::vector<double>>& coordinates) :
 	xsi(x), eta(e), weight(w) {
 
@@ -11,13 +12,13 @@ GaussPoint::GaussPoint(double x, double e, double w, const std::vector<std::vect
 	Jacobian = determinant2x2(JMatrix);
 	ConstructB();
 
-	KProduct = multiplyMatrices(transpose(BMatrix), BMatrix);
+	KProduct = transpose(BMatrix) * BMatrix;
 	KProduct *= (Jacobian * weight);
 }
 
 void GaussPoint::ConstructJ(const std::vector<std::vector<double>>& coordinates) {
 
-	JMatrix = multiplyMatrices(NDerivatives, coordinates);
+	JMatrix = NDerivatives * coordinates;
 }
 
 void GaussPoint::ConstructB() {

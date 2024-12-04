@@ -15,9 +15,15 @@ public:
 	void ReadFile(std::string fileName);
 	//assign coordinates, flux, etc to individual elements
 	void Discretize();
+	//assemble element stiffness matrices into their correct position in the global stiffness matrix
+	void AssembleGlobalStiffness();
 
 	void ApplyFluxToElement(const std::vector<int>& indices, 
 		std::vector<std::pair<int, double>>& elementFlux);
+
+	//apply the Dirichlet BC by modifying stiffness matrix and force vector
+	void ApplyBC();
+
 protected:
 	//columns of globalCoordinates is x and y values
 	std::vector<std::vector<double>> globalCoordinates;
@@ -34,5 +40,12 @@ protected:
 	//flux location is nx2 vector, each column is the start and last node of boundary segment
 	std::vector<std::vector<int>> fluxLocation;
 	std::vector<double> fluxValue;
-};
 
+	//BC is nx1 vector, contain nodes with predefined values
+	std::vector<int> bcLocation;
+	std::vector<double> bcValue;
+
+	std::vector<std::vector<double>> globalStiffness;
+	std::vector<double> globalForce;
+	std::vector<double> globalPotential;
+};

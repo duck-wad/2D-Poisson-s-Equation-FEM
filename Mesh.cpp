@@ -8,8 +8,10 @@ Mesh::Mesh(std::string fileName) {
 
 	Discretize();
 
-	//assemble
-	std::cout << "fuck" << std::endl;
+	AssembleGlobalStiffness();
+
+	//AssembleGlobalForce();
+	ApplyBC();
 	//solve
 }
 
@@ -61,6 +63,16 @@ void Mesh::ReadFile(std::string fileName) {
 			infile >> fluxLocation[i][j];
 		}
 		infile >> junk >> fluxValue[i];
+	}
+
+	int numBC;
+	infile >> junk >> numBC;
+
+	bcLocation.resize(numBC);
+	bcValue.resize(numBC, 0.0);
+
+	for (size_t i = 0; i < numBC; i++) {
+		infile >> junk >> junk >> bcLocation[i] >> junk >> bcValue[i];
 	}
 }
 
@@ -134,4 +146,41 @@ void Mesh::ApplyFluxToElement(const std::vector<int>& indices,
 			}
 		}
 	}
+}
+
+void Mesh::AssembleGlobalStiffness() {
+	globalStiffness.resize(maxnode, std::vector<double>(maxnode, 0.0));
+
+	//loop over every element, use connectivity to map the element stiffness entries to the correct location
+	for (size_t elem = 0; elem < numelem; elem++) {
+		const std::vector<std::vector<double>>& elementStiffness = elements[elem].getStiffness();
+
+		const std::vector<int>& elementNodes = connectivity[elem];
+
+		for (size_t i = 0; i < 4; i++) {
+			for (size_t j = 0; j < 4; j++) {
+				globalStiffness[elementNodes[i]-1][elementNodes[j]-1] += elementStiffness[i][j];
+			}
+		}
+	}
+
+	//debug
+	writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS.csv");
+}
+
+void Mesh::ApplyBC() {
+
+	//each node that has dirichlet BC, replace the whole row with zero except the column corresponding to the node number
+	//replace that with 1. in force vector, set the row value to the bcValue
+	for (size_t i = 0; i < bcLocation.size(); i++) {
+		int loc = bcLocation[i] - 1;
+		for (size_t j = 0; j < maxnode; j++) {
+			if (j == loc) {
+				globalStiffness[j][loc] = 1.0;
+			}
+			else globalStiffness[j][loc] = 0.0;
+		}
+	}
+
+	writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS_BC.csv");
 }

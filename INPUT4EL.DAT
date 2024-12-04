@@ -16,3 +16,7 @@ node9 coord: 0.0 2.0
 numflux: 2
 flux1 location: 9 8 value: 10.0
 flux2 location: 8 7 value: 20.0
+numBC: 3
+bc1 location: 1 value: 1.0
+bc2 location: 2 value: 1.0
+bc3 location: 5 value: 1.0

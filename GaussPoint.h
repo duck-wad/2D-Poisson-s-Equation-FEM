@@ -14,6 +14,8 @@ public:
 	void ConstructJ(const std::vector<std::vector<double>>& coordinates);
 	void ConstructB();
 
+	std::vector<std::vector<double>> getKProduct() { return KProduct; }
+
 protected:
 	//local coordinates associated with gauss point ex) -1/sqrt3, 1/sqrt3
 	double xsi;

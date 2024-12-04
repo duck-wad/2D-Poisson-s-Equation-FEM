@@ -22,7 +22,15 @@ Element::Element(double coeff, std::vector<int>& indices, std::vector<std::vecto
 	for (size_t i = 0; i < 4; i++) {
 		gaussPoints.emplace_back(gaussCoordinates[i][0], gaussCoordinates[i][1], gaussWeights[i], coordinates);
 	}
-}
 
-//after the construction of stiffness and force matrices, deallocate the gausspoint memory with
-//gausspoint.clear()
+	//sum each gausspoint contribution to get the stiffness matrix
+	stiffnessMatrix.resize(4, std::vector<double>(4));
+	for (size_t i = 0; i < 4; i++) {
+		stiffnessMatrix += gaussPoints[i].getKProduct();
+	}
+	stiffnessMatrix *= k;
+
+	//do something with the force vector
+
+	gaussPoints.clear();
+}
