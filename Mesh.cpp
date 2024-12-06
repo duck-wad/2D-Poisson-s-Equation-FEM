@@ -10,9 +10,9 @@ Mesh::Mesh(std::string fileName) {
 
 	AssembleGlobalStiffness();
 
-	//AssembleGlobalForce();
+	AssembleGlobalForce();
 	ApplyBC();
-	//solve
+	//Solve();
 }
 
 void Mesh::ReadFile(std::string fileName) {
@@ -51,6 +51,7 @@ void Mesh::ReadFile(std::string fileName) {
 		}
 	}
 
+	//read flux on boundary
 	int numflux;
 	infile >> junk >> numflux;
 
@@ -65,6 +66,17 @@ void Mesh::ReadFile(std::string fileName) {
 		infile >> junk >> fluxValue[i];
 	}
 
+	//read point sources
+	int numpointsource;
+	infile >> junk >> numpointsource;
+	for (size_t i = 0; i < numpointsource; i++) {
+		int tempLoc;
+		double tempVal;
+		infile >> junk >> junk >> tempLoc >> junk >> tempVal;
+		pointSource.push_back(std::make_pair(tempLoc, tempVal));
+	}
+
+	//read boundary conditions
 	int numBC;
 	infile >> junk >> numBC;
 
@@ -96,7 +108,17 @@ void Mesh::Discretize() {
 		std::vector<std::pair<int, double>> elemFlux;
 		ApplyFluxToElement(connectivity[elem], elemFlux);
 
-		elements.emplace_back(k, connectivity[elem], elemCoord, elemFlux);
+		double Q = 0.0;
+		bool isQ = false;
+		for (size_t i = 0; i < pointSource.size(); i++) {
+			if (pointSource[i].first - 1 == elem) {
+				Q = pointSource[i].second;
+				isQ = true;
+				break;
+			}
+		}
+
+		elements.emplace_back(k, connectivity[elem], elemCoord, elemFlux, Q, isQ);
 	}
 }
 
@@ -166,6 +188,19 @@ void Mesh::AssembleGlobalStiffness() {
 
 	//debug
 	writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS.csv");
+}
+
+void Mesh::AssembleGlobalForce() {
+	globalForce.resize(maxnode);
+
+	for (size_t elem = 0; elem < numelem; elem++) {
+		const std::vector<double>& elementForce = elements[elem].getForce();
+		const std::vector<int>& elementNodes = connectivity[elem];
+
+		for (size_t i = 0; i < 4; i++) {
+			globalForce[elementNodes[i] - 1] += elementForce[i];
+		}
+	}
 }
 
 void Mesh::ApplyBC() {

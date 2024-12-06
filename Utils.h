@@ -87,6 +87,18 @@ std::vector<std::vector<T>> operator*(const std::vector<std::vector<T>>& mat1, c
 }
 
 template<typename T>
+std::vector<T> operator*(const std::vector<T>& vec, const T c) {
+	if (vec.empty()) {
+		throw std::invalid_argument("Vector cannot be empty");
+	}
+	std::vector<T> output(vec.size());
+	for (size_t i = 0; i < vec.size(); i++) {
+		output[i] += vec[i] * c;
+	}
+	return output;
+}
+
+template<typename T>
 std::vector<std::vector<T>> operator+(const std::vector<std::vector<T>>& mat1, const std::vector<std::vector<T>>& mat2) {
 
 	if (mat1.empty() || mat2.empty()) {
@@ -124,6 +136,21 @@ std::vector<std::vector<T>>& operator+=(std::vector<std::vector<T>>& mat1, const
 	return mat1;
 }
 
+template<typename T>
+std::vector<T>& operator+=(std::vector<T>& v1, const std::vector<T>& v2) {
+
+	if (v1.empty() || v2.empty()) {
+		throw std::invalid_argument("Vectors must not be empty");
+	}
+	if (v1.size() != v2.size()) {
+		throw std::invalid_argument("Vectors must be the same size for addition");
+	}
+
+	for (size_t i = 0; i < v1.size(); i++) {
+		v1[i] += v2[i];
+	}
+	return v1;
+}
 
 template<typename T>
 std::vector<std::vector<T>>& operator*= (std::vector<std::vector<T>>& matrix, T scalar) {
@@ -165,9 +192,10 @@ void writeMatrixToCSV(const std::vector<std::vector<T>>& matrix, const std::stri
 
 	std::cout << "Matrix written to " << filename << " successfully." << std::endl;
 
+	/*
 	// Open the file in the default application (Excel on Windows)
 	std::string command = "start " + filename;
 	if (system(command.c_str()) != 0) {
 		std::cerr << "Failed to open the file." << std::endl;
-	}
+	}*/
 }

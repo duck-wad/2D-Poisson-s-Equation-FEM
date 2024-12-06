@@ -3,8 +3,8 @@
 #include "Element.h"
 #include "Utils.h"
 
-Element::Element(double coeff, std::vector<int>& indices, std::vector<std::vector<double>>& coordinates, std::vector<std::pair<int, double>>& flux) :
-	k(coeff), nodeIndices(indices), nodeCoordinates(coordinates) {
+Element::Element(double coeff, std::vector<int>& indices, std::vector<std::vector<double>>& coordinates, std::vector<std::pair<int, double>>& flux, double Q, bool isQ) :
+	k(coeff), nodeIndices(indices), nodeCoordinates(coordinates), pointSource(Q), isPointSource(isQ) {
 	if (flux.empty()) {
 		isFlux = false;
 	}
@@ -19,6 +19,7 @@ Element::Element(double coeff, std::vector<int>& indices, std::vector<std::vecto
 	GaussCoordinates(gaussCoordinates, gaussWeights);
 
 	//construct the list of gausspoints
+	//TODO: pass flux into the gausspoint constructor
 	for (size_t i = 0; i < 4; i++) {
 		gaussPoints.emplace_back(gaussCoordinates[i][0], gaussCoordinates[i][1], gaussWeights[i], coordinates);
 	}
@@ -30,7 +31,14 @@ Element::Element(double coeff, std::vector<int>& indices, std::vector<std::vecto
 	}
 	stiffnessMatrix *= k;
 
+	forceVector.resize(4, 0.0);
 	//do something with the force vector
+	if (isPointSource) {
+		//loop over gausspoints and add contribution of each to force vector
+		for (size_t i = 0; i < 4; i++) {
+			forceVector += (gaussPoints[i].getFVector() * pointSource);
+		}
+	}
 
 	gaussPoints.clear();
 }

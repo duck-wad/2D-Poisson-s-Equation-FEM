@@ -7,13 +7,19 @@ GaussPoint::GaussPoint(double x, double e, double w, const std::vector<std::vect
 
 	ShapeDerivative(NDerivatives, xsi, eta);
 	NDerivatives = transpose(NDerivatives);
+	ShapeFunction(N, xsi, eta);
 	ConstructJ(coordinates);
 	GMatrix = inverse2x2(JMatrix);
 	Jacobian = determinant2x2(JMatrix);
 	ConstructB();
 
+	//for stiffness
 	KProduct = transpose(BMatrix) * BMatrix;
 	KProduct *= (Jacobian * weight);
+
+	FVector = N * (Jacobian*weight);
+
+	//TODO: receive flux and use it to make the force vector. but how? 
 }
 
 void GaussPoint::ConstructJ(const std::vector<std::vector<double>>& coordinates) {

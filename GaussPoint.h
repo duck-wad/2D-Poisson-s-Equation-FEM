@@ -15,6 +15,7 @@ public:
 	void ConstructB();
 
 	std::vector<std::vector<double>> getKProduct() { return KProduct; }
+	std::vector<double> getFVector() { return FVector; }
 
 protected:
 	//local coordinates associated with gauss point ex) -1/sqrt3, 1/sqrt3
@@ -28,9 +29,12 @@ protected:
 	std::vector<std::vector<double>> JMatrix;
 	//gamma matrix is inverse of JMatrix
 	std::vector<std::vector<double>> GMatrix;
-	//shape function derivatives at the gausspoint. do i need to store this though? if not remove
+	std::vector<double> N;
+	//shape function derivatives at the gausspoint
 	std::vector<std::vector<double>> NDerivatives;
 	//product of B, BTranspose, and Jacobian
 	std::vector<std::vector<double>> KProduct;
+	//vector for contribution to force vector from point source
+	std::vector<double> FVector;
 };
 

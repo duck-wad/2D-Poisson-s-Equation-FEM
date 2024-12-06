@@ -9,9 +9,11 @@
 class Element
 {
 public:
-	Element(double k, std::vector<int>& indices, std::vector<std::vector<double>>& coordinates, std::vector<std::pair<int, double>>& flux);
+	Element(double k, std::vector<int>& indices, std::vector<std::vector<double>>& coordinates, std::vector<std::pair<int, double>>& flux, double Q, bool isQ);
 
 	std::vector<std::vector<double>> getStiffness() { return stiffnessMatrix; }
+
+	std::vector<double> getForce() { return forceVector; }
 
 protected:
 	//constitutive coefficient
@@ -22,16 +24,18 @@ protected:
 	//global coordinates of the element nodes. 4x2 where each column is x y 
 	std::vector<std::vector<double>> nodeCoordinates;
 
-	std::vector<std::vector<double>> stiffnessMatrix;
-
 	//pair container for flux applied. first value is the local edge applied, second is value
 	std::vector<std::pair<int, double>> elementFlux;
 	bool isFlux;
 	//point source Q 
-	std::vector<double> forceVector;
+	double pointSource;
+	bool isPointSource;
 	
 	//4 gauss points computed per element at predefined locations
 	//each GaussPoint object stores its own B matrices, Jacobian etc
 	std::vector<GaussPoint> gaussPoints;
+
+	std::vector<std::vector<double>> stiffnessMatrix;
+	std::vector<double> forceVector;
 };
 

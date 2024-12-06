@@ -17,12 +17,16 @@ public:
 	void Discretize();
 	//assemble element stiffness matrices into their correct position in the global stiffness matrix
 	void AssembleGlobalStiffness();
+	//assemble element force vector entires to the correct position in global force
+	void AssembleGlobalForce();
 
 	void ApplyFluxToElement(const std::vector<int>& indices, 
 		std::vector<std::pair<int, double>>& elementFlux);
 
 	//apply the Dirichlet BC by modifying stiffness matrix and force vector
 	void ApplyBC();
+
+	void Solve();
 
 protected:
 	//columns of globalCoordinates is x and y values
@@ -40,6 +44,9 @@ protected:
 	//flux location is nx2 vector, each column is the start and last node of boundary segment
 	std::vector<std::vector<int>> fluxLocation;
 	std::vector<double> fluxValue;
+
+	//list of point sources. first entry is element applied, second is the value
+	std::vector<std::pair<int, double>> pointSource;
 
 	//BC is nx1 vector, contain nodes with predefined values
 	std::vector<int> bcLocation;
