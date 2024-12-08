@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def generate_input_and_visualize(subdivisions, domain_size, output_filename, point_sources, bcs, flux_value):
+def generate_input_and_visualize(subdivisions, domain_size, output_filename, point_sources, bcs, flux_value, k):
     # Generate nodes
     node_coords = [(x, y) for y in range(subdivisions + 1) for x in range(subdivisions + 1)]
 
@@ -16,7 +16,7 @@ def generate_input_and_visualize(subdivisions, domain_size, output_filename, poi
 
     # Write to output file
     with open(output_filename, 'w') as file:
-        file.write(f"coeff: 1.0\n")
+        file.write(f"coeff: {k}\n")
 
         # Write elements
         file.write(f"numelem: {len(elements)}\n")
@@ -94,11 +94,12 @@ def visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes
     plt.show()
 
 # Generate input file and visualize
-subdivisions = 5
+subdivisions = 10
 domain_size = 1.0
-output_filename = "INPUT5_NOFLUX.txt"
-point_sources = []  # Example: [(element, value), ...]
-bcs = [(1, 3.0)]  # Example: [(node, value), ...]
+output_filename = "INPUT10_QNOFLUX.txt"
+point_sources = [(100, 1.0)]  # Example: [(element, value), ...]
+bcs = [(1, 0.0)]  # Example: [(node, value), ...]
 flux_value = 0.0
+k = 1.0
 
-generate_input_and_visualize(subdivisions, domain_size, output_filename, point_sources, bcs, flux_value)
+generate_input_and_visualize(subdivisions, domain_size, output_filename, point_sources, bcs, flux_value, k)
