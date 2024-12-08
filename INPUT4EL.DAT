@@ -15,7 +15,7 @@ node8 coord: 1.0 2.0
 node9 coord: 0.0 2.0
 numflux: 2
 flux1 location: 9 8 value: 10.0
-flux2 location: 8 7 value: 20.0
+flux2 location: 8 7 value: 10.0
 numpointsource: 2
 source1 element: 1 value: 40.0
 source2 element: 2 value: 80.0

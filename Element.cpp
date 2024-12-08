@@ -39,6 +39,41 @@ Element::Element(double coeff, std::vector<int>& indices, std::vector<std::vecto
 			forceVector += (gaussPoints[i].getFVector() * pointSource);
 		}
 	}
+	if (isFlux) {
+		for (size_t i = 0; i < elementFlux.size(); i++) {
+			int edge = elementFlux[i].first;
+			int startNode, endNode = 0;
+			//first number is x coordinate, second is y coordinate
+			std::vector<double> startPoint(2), endPoint(2);
+			if (edge == 1) {
+				startNode = 0;
+				endNode = 1;
+			}
+			else if (edge == 2) {
+				startNode = 1;
+				endNode = 2;
+			}
+			else if (edge == 3) {
+				startNode = 2;
+				endNode = 3;
+			}
+			else if (edge == 4) {
+				startNode = 3;
+				endNode = 0;
+			}
+			else
+				throw std::invalid_argument("Edge must be from 1-4");
+
+			startPoint[0] = nodeCoordinates[0][startNode];
+			startPoint[1] = nodeCoordinates[1][startNode];
+			endPoint[0] = nodeCoordinates[0][endNode];
+			endPoint[1] = nodeCoordinates[1][endNode];
+
+			double L = std::sqrt(std::pow(endPoint[0] - startPoint[0], 2) + std::pow(endPoint[1] - startPoint[1], 2));
+			forceVector[startNode] -= elementFlux[i].second * L / 2;
+			forceVector[endNode] -= elementFlux[i].second * L / 2;
+		}
+	}
 
 	gaussPoints.clear();
 }

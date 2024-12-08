@@ -7,9 +7,7 @@
 
 int main() {
 
-
-
-	Mesh mesh("INPUT4EL.DAT");
+	Mesh mesh("input900.txt");
 
 	return 0;
 }

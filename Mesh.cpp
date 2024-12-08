@@ -187,7 +187,7 @@ void Mesh::AssembleGlobalStiffness() {
 	}
 
 	//debug
-	writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS.csv");
+	//writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS.csv");
 }
 
 void Mesh::AssembleGlobalForce() {
@@ -217,5 +217,6 @@ void Mesh::ApplyBC() {
 		}
 	}
 
-	writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS_BC.csv");
+	//debug
+	//writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS_BC.csv");
 }
