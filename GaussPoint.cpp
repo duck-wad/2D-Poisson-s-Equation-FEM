@@ -18,8 +18,7 @@ GaussPoint::GaussPoint(double x, double e, double w, const std::vector<std::vect
 	KProduct *= (Jacobian * weight);
 
 	FVector = N * (Jacobian*weight);
-
-	//TODO: receive flux and use it to make the force vector. but how? 
+	//writeMatrixToCSV(KProduct, "GAUSSPOINT.csv");
 }
 
 void GaussPoint::ConstructJ(const std::vector<std::vector<double>>& coordinates) {

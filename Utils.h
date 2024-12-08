@@ -87,6 +87,24 @@ std::vector<std::vector<T>> operator*(const std::vector<std::vector<T>>& mat1, c
 }
 
 template<typename T>
+std::vector<T> operator* (const std::vector<std::vector<T>>& mat, const std::vector<T>& vec) {
+	if (mat.empty() || vec.empty()) {
+		throw std::invalid_argument("Matrices must not be empty");
+	}
+	if (mat.size() != vec.size() || mat[0].size() != vec.size()) {
+		throw std::invalid_argument("Matrix dimensions are not compatible for multiplication");
+	}
+	std::vector<T> output(vec.size(), T());
+
+	for (size_t i = 0; i < vec.size(); i++) {
+		for (size_t j = 0; j < vec.size(); j++) {
+			output[i] += mat[j][i] * vec[j];
+		}
+	}
+	return output;
+}
+
+template<typename T>
 std::vector<T> operator*(const std::vector<T>& vec, const T c) {
 	if (vec.empty()) {
 		throw std::invalid_argument("Vector cannot be empty");
@@ -198,4 +216,22 @@ void writeMatrixToCSV(const std::vector<std::vector<T>>& matrix, const std::stri
 	if (system(command.c_str()) != 0) {
 		std::cerr << "Failed to open the file." << std::endl;
 	}*/
+}
+
+template<typename T>
+void writeVectorToCSV(const std::vector<T>& vector, const std::string& filename) {
+	// Open the file stream
+	std::ofstream file(filename);
+
+	if (!file.is_open()) {
+		throw std::ios_base::failure("Failed to open file for writing.");
+	}
+
+	for (size_t i = 0; i < vector.size(); i++) {
+		file << vector[i] << "\n";
+	}
+
+	file.close();
+
+	std::cout << "Vector written to " << filename << " succesfully." << std::endl;
 }

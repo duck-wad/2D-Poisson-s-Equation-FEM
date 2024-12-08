@@ -2,6 +2,7 @@
 
 #include "Mesh.h"
 #include "Utils.h"
+#include "Matrix.h"
 
 Mesh::Mesh(std::string fileName) {
 	ReadFile(fileName);
@@ -12,7 +13,7 @@ Mesh::Mesh(std::string fileName) {
 
 	AssembleGlobalForce();
 	ApplyBC();
-	//Solve();
+	Solve();
 }
 
 void Mesh::ReadFile(std::string fileName) {
@@ -201,6 +202,9 @@ void Mesh::AssembleGlobalForce() {
 			globalForce[elementNodes[i] - 1] += elementForce[i];
 		}
 	}
+
+	//debug
+	//writeVectorToCSV(globalForce, "GLOBAL_FORCE.csv");
 }
 
 void Mesh::ApplyBC() {
@@ -215,8 +219,35 @@ void Mesh::ApplyBC() {
 			}
 			else globalStiffness[j][loc] = 0.0;
 		}
+		globalForce[loc] = bcValue[i];
 	}
 
 	//debug
 	//writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS_BC.csv");
+	//writeVectorToCSV(globalForce, "GLOBAL_FORCE_BC.csv");
+}
+
+void Mesh::Solve() {
+	globalPotential.resize(maxnode);
+	/*
+	try {
+		globalPotential = solveLU(globalStiffness, globalForce);
+		std::vector<std::vector<double>> nodeOutput(3, std::vector<double>(maxnode));
+		nodeOutput[0] = globalCoordinates[0];
+		nodeOutput[1] = globalCoordinates[1];
+		nodeOutput[2] = globalPotential;
+		writeMatrixToCSV(nodeOutput, "NODE_OUTPUT.csv");
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Error: " << e.what() << std::endl;
+	}*/
+	std::vector<std::vector<double>> inverted = invertMatrix(globalStiffness);
+	//writeMatrixToCSV(inverted, "INVERTED.csv");
+	globalPotential = inverted * globalForce;
+
+	std::vector<std::vector<double>> nodeOutput(3, std::vector<double>(maxnode));
+	nodeOutput[0] = globalCoordinates[0];
+	nodeOutput[1] = globalCoordinates[1];
+	nodeOutput[2] = globalPotential;
+	writeMatrixToCSV(nodeOutput, "NODE_OUTPUT.csv");
 }

@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Element.h" />
     <ClInclude Include="GaussPoint.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="ShapeFunctions.h" />
     <ClInclude Include="Utils.h" />
