@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Utils.h"
 
 //return 4 gauss points and their weights assuming 2x2 gauss quadrature

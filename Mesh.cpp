@@ -1,4 +1,5 @@
 #include <fstream>
+#include <algorithm>
 
 #include "Mesh.h"
 #include "Utils.h"
@@ -223,8 +224,8 @@ void Mesh::ApplyBC() {
 	}
 
 	//debug
-	//writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS_BC.csv");
-	//writeVectorToCSV(globalForce, "GLOBAL_FORCE_BC.csv");
+	writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS_BC.csv");
+	writeVectorToCSV(globalForce, "GLOBAL_FORCE_BC.csv");
 }
 
 void Mesh::Solve() {

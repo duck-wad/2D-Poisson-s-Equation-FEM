@@ -1,6 +1,10 @@
+import subprocess
 import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import cm
+import pandas as pd
 
-def generate_input_and_visualize(subdivisions, domain_size, output_filename, point_sources, bcs, flux_value, k):
+def generate_mesh(subdivisions, domain_size, input_filename, point_sources, bcs, flux_value, k):
     # Generate nodes
     node_coords = [(x, y) for y in range(subdivisions + 1) for x in range(subdivisions + 1)]
 
@@ -15,7 +19,7 @@ def generate_input_and_visualize(subdivisions, domain_size, output_filename, poi
             elements.append((n1, n2, n4, n3))
 
     # Write to output file
-    with open(output_filename, 'w') as file:
+    with open(input_filename, 'w') as file:
         file.write(f"coeff: {k}\n")
 
         # Write elements
@@ -41,7 +45,19 @@ def generate_input_and_visualize(subdivisions, domain_size, output_filename, poi
             node1 = (i + 1) * (subdivisions + 1)
             node2 = node1 + (subdivisions + 1)
             fluxes.append((node1, node2, flux_value))
+        '''
+        # Bottom boundary flux
+        for j in range(subdivisions):
+            node1 = j + 1
+            node2 = node1 + 1
+            fluxes.append((node1, node2, flux_value))
 
+        # Left boundary flux
+        for i in range(subdivisions):
+          node1 = i * (subdivisions + 1) + 1
+          node2 = node1 + (subdivisions + 1)
+          fluxes.append((node1, node2, flux_value))
+        '''
         # Write flux data
         file.write(f"numflux: {len(fluxes)}\n")
         for idx, (node1, node2, value) in enumerate(fluxes, start=1):
@@ -57,10 +73,10 @@ def generate_input_and_visualize(subdivisions, domain_size, output_filename, poi
         for idx, (node, value) in enumerate(bcs, start=1):
             file.write(f"bc{idx} location: {node} value: {value}\n")
 
-    print(f"Input file '{output_filename}' has been generated.")
+    print(f"Input file '{input_filename}' has been generated.")
 
     # Visualize the mesh
-    visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes)
+    # visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes)
 
 def visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes):
     # Plot nodes
@@ -93,13 +109,62 @@ def visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes
     ax.legend()
     plt.show()
 
+def run_cpp_program(input_file):
+    cpp_executable = "program.exe"  # Path to the compiled C++ executable
+
+    print("Running C++ program...")
+    try:
+        subprocess.run([cpp_executable, input_file], check=True)
+        print(f"C++ program completed.")
+    except FileNotFoundError:
+        print(f"Error: C++ executable '{cpp_executable}' not found.")
+    except subprocess.CalledProcessError as e:
+        print(f"Error: C++ program failed with error code {e.returncode}.")
+
+
+def plot_3d_contour(csv_file):
+    # Load CSV file
+    data = pd.read_csv("data/" + csv_file, header=None, names=["x", "y", "potential"])
+
+    # Extract unique x and y coordinates
+    x_coords = np.sort(data["x"].unique())
+    y_coords = np.sort(data["y"].unique())
+
+    # Create a meshgrid for x and y
+    X, Y = np.meshgrid(x_coords, y_coords)
+
+    # Reshape potential values into a 2D grid
+    Z = data.pivot(index="y", columns="x", values="potential").values
+
+    # Create the 3D plot
+    fig = plt.figure(figsize=(10, 7))
+    ax = fig.add_subplot(111, projection='3d')
+
+    # Plot the surface
+    contour = ax.plot_surface(X, Y, Z, cmap=cm.viridis, edgecolor='k', alpha=0.9)
+
+    # Add color bar
+    cbar = fig.colorbar(contour, ax=ax, shrink=0.5, aspect=10)
+    cbar.set_label("Potential")
+
+    # Set labels
+    ax.set_xlabel("X Coordinate")
+    ax.set_ylabel("Y Coordinate")
+    ax.set_zlabel("Potential")
+    ax.set_title("3D Contour Plot of Potential")
+
+    plt.show()
+
 # Generate input file and visualize
-subdivisions = 10
+input_filename = "INPUT.txt"
+output_filename = "NODE_OUTPUT.csv"
+subdivisions = 20
 domain_size = 1.0
-output_filename = "INPUT10_QNOFLUX.txt"
-point_sources = [(100, 1.0)]  # Example: [(element, value), ...]
+point_sources = []  # Example: [(element, value), ...]
 bcs = [(1, 0.0)]  # Example: [(node, value), ...]
-flux_value = 0.0
+flux_value = -1.0
 k = 1.0
 
-generate_input_and_visualize(subdivisions, domain_size, output_filename, point_sources, bcs, flux_value, k)
+generate_mesh(subdivisions, domain_size, input_filename, point_sources, bcs, flux_value, k)
+run_cpp_program(input_filename)
+plot_3d_contour(output_filename)

@@ -1,0 +1,887 @@
+coeff: 1.0
+numelem: 400
+element1 indices: 1 2 23 22
+element2 indices: 2 3 24 23
+element3 indices: 3 4 25 24
+element4 indices: 4 5 26 25
+element5 indices: 5 6 27 26
+element6 indices: 6 7 28 27
+element7 indices: 7 8 29 28
+element8 indices: 8 9 30 29
+element9 indices: 9 10 31 30
+element10 indices: 10 11 32 31
+element11 indices: 11 12 33 32
+element12 indices: 12 13 34 33
+element13 indices: 13 14 35 34
+element14 indices: 14 15 36 35
+element15 indices: 15 16 37 36
+element16 indices: 16 17 38 37
+element17 indices: 17 18 39 38
+element18 indices: 18 19 40 39
+element19 indices: 19 20 41 40
+element20 indices: 20 21 42 41
+element21 indices: 22 23 44 43
+element22 indices: 23 24 45 44
+element23 indices: 24 25 46 45
+element24 indices: 25 26 47 46
+element25 indices: 26 27 48 47
+element26 indices: 27 28 49 48
+element27 indices: 28 29 50 49
+element28 indices: 29 30 51 50
+element29 indices: 30 31 52 51
+element30 indices: 31 32 53 52
+element31 indices: 32 33 54 53
+element32 indices: 33 34 55 54
+element33 indices: 34 35 56 55
+element34 indices: 35 36 57 56
+element35 indices: 36 37 58 57
+element36 indices: 37 38 59 58
+element37 indices: 38 39 60 59
+element38 indices: 39 40 61 60
+element39 indices: 40 41 62 61
+element40 indices: 41 42 63 62
+element41 indices: 43 44 65 64
+element42 indices: 44 45 66 65
+element43 indices: 45 46 67 66
+element44 indices: 46 47 68 67
+element45 indices: 47 48 69 68
+element46 indices: 48 49 70 69
+element47 indices: 49 50 71 70
+element48 indices: 50 51 72 71
+element49 indices: 51 52 73 72
+element50 indices: 52 53 74 73
+element51 indices: 53 54 75 74
+element52 indices: 54 55 76 75
+element53 indices: 55 56 77 76
+element54 indices: 56 57 78 77
+element55 indices: 57 58 79 78
+element56 indices: 58 59 80 79
+element57 indices: 59 60 81 80
+element58 indices: 60 61 82 81
+element59 indices: 61 62 83 82
+element60 indices: 62 63 84 83
+element61 indices: 64 65 86 85
+element62 indices: 65 66 87 86
+element63 indices: 66 67 88 87
+element64 indices: 67 68 89 88
+element65 indices: 68 69 90 89
+element66 indices: 69 70 91 90
+element67 indices: 70 71 92 91
+element68 indices: 71 72 93 92
+element69 indices: 72 73 94 93
+element70 indices: 73 74 95 94
+element71 indices: 74 75 96 95
+element72 indices: 75 76 97 96
+element73 indices: 76 77 98 97
+element74 indices: 77 78 99 98
+element75 indices: 78 79 100 99
+element76 indices: 79 80 101 100
+element77 indices: 80 81 102 101
+element78 indices: 81 82 103 102
+element79 indices: 82 83 104 103
+element80 indices: 83 84 105 104
+element81 indices: 85 86 107 106
+element82 indices: 86 87 108 107
+element83 indices: 87 88 109 108
+element84 indices: 88 89 110 109
+element85 indices: 89 90 111 110
+element86 indices: 90 91 112 111
+element87 indices: 91 92 113 112
+element88 indices: 92 93 114 113
+element89 indices: 93 94 115 114
+element90 indices: 94 95 116 115
+element91 indices: 95 96 117 116
+element92 indices: 96 97 118 117
+element93 indices: 97 98 119 118
+element94 indices: 98 99 120 119
+element95 indices: 99 100 121 120
+element96 indices: 100 101 122 121
+element97 indices: 101 102 123 122
+element98 indices: 102 103 124 123
+element99 indices: 103 104 125 124
+element100 indices: 104 105 126 125
+element101 indices: 106 107 128 127
+element102 indices: 107 108 129 128
+element103 indices: 108 109 130 129
+element104 indices: 109 110 131 130
+element105 indices: 110 111 132 131
+element106 indices: 111 112 133 132
+element107 indices: 112 113 134 133
+element108 indices: 113 114 135 134
+element109 indices: 114 115 136 135
+element110 indices: 115 116 137 136
+element111 indices: 116 117 138 137
+element112 indices: 117 118 139 138
+element113 indices: 118 119 140 139
+element114 indices: 119 120 141 140
+element115 indices: 120 121 142 141
+element116 indices: 121 122 143 142
+element117 indices: 122 123 144 143
+element118 indices: 123 124 145 144
+element119 indices: 124 125 146 145
+element120 indices: 125 126 147 146
+element121 indices: 127 128 149 148
+element122 indices: 128 129 150 149
+element123 indices: 129 130 151 150
+element124 indices: 130 131 152 151
+element125 indices: 131 132 153 152
+element126 indices: 132 133 154 153
+element127 indices: 133 134 155 154
+element128 indices: 134 135 156 155
+element129 indices: 135 136 157 156
+element130 indices: 136 137 158 157
+element131 indices: 137 138 159 158
+element132 indices: 138 139 160 159
+element133 indices: 139 140 161 160
+element134 indices: 140 141 162 161
+element135 indices: 141 142 163 162
+element136 indices: 142 143 164 163
+element137 indices: 143 144 165 164
+element138 indices: 144 145 166 165
+element139 indices: 145 146 167 166
+element140 indices: 146 147 168 167
+element141 indices: 148 149 170 169
+element142 indices: 149 150 171 170
+element143 indices: 150 151 172 171
+element144 indices: 151 152 173 172
+element145 indices: 152 153 174 173
+element146 indices: 153 154 175 174
+element147 indices: 154 155 176 175
+element148 indices: 155 156 177 176
+element149 indices: 156 157 178 177
+element150 indices: 157 158 179 178
+element151 indices: 158 159 180 179
+element152 indices: 159 160 181 180
+element153 indices: 160 161 182 181
+element154 indices: 161 162 183 182
+element155 indices: 162 163 184 183
+element156 indices: 163 164 185 184
+element157 indices: 164 165 186 185
+element158 indices: 165 166 187 186
+element159 indices: 166 167 188 187
+element160 indices: 167 168 189 188
+element161 indices: 169 170 191 190
+element162 indices: 170 171 192 191
+element163 indices: 171 172 193 192
+element164 indices: 172 173 194 193
+element165 indices: 173 174 195 194
+element166 indices: 174 175 196 195
+element167 indices: 175 176 197 196
+element168 indices: 176 177 198 197
+element169 indices: 177 178 199 198
+element170 indices: 178 179 200 199
+element171 indices: 179 180 201 200
+element172 indices: 180 181 202 201
+element173 indices: 181 182 203 202
+element174 indices: 182 183 204 203
+element175 indices: 183 184 205 204
+element176 indices: 184 185 206 205
+element177 indices: 185 186 207 206
+element178 indices: 186 187 208 207
+element179 indices: 187 188 209 208
+element180 indices: 188 189 210 209
+element181 indices: 190 191 212 211
+element182 indices: 191 192 213 212
+element183 indices: 192 193 214 213
+element184 indices: 193 194 215 214
+element185 indices: 194 195 216 215
+element186 indices: 195 196 217 216
+element187 indices: 196 197 218 217
+element188 indices: 197 198 219 218
+element189 indices: 198 199 220 219
+element190 indices: 199 200 221 220
+element191 indices: 200 201 222 221
+element192 indices: 201 202 223 222
+element193 indices: 202 203 224 223
+element194 indices: 203 204 225 224
+element195 indices: 204 205 226 225
+element196 indices: 205 206 227 226
+element197 indices: 206 207 228 227
+element198 indices: 207 208 229 228
+element199 indices: 208 209 230 229
+element200 indices: 209 210 231 230
+element201 indices: 211 212 233 232
+element202 indices: 212 213 234 233
+element203 indices: 213 214 235 234
+element204 indices: 214 215 236 235
+element205 indices: 215 216 237 236
+element206 indices: 216 217 238 237
+element207 indices: 217 218 239 238
+element208 indices: 218 219 240 239
+element209 indices: 219 220 241 240
+element210 indices: 220 221 242 241
+element211 indices: 221 222 243 242
+element212 indices: 222 223 244 243
+element213 indices: 223 224 245 244
+element214 indices: 224 225 246 245
+element215 indices: 225 226 247 246
+element216 indices: 226 227 248 247
+element217 indices: 227 228 249 248
+element218 indices: 228 229 250 249
+element219 indices: 229 230 251 250
+element220 indices: 230 231 252 251
+element221 indices: 232 233 254 253
+element222 indices: 233 234 255 254
+element223 indices: 234 235 256 255
+element224 indices: 235 236 257 256
+element225 indices: 236 237 258 257
+element226 indices: 237 238 259 258
+element227 indices: 238 239 260 259
+element228 indices: 239 240 261 260
+element229 indices: 240 241 262 261
+element230 indices: 241 242 263 262
+element231 indices: 242 243 264 263
+element232 indices: 243 244 265 264
+element233 indices: 244 245 266 265
+element234 indices: 245 246 267 266
+element235 indices: 246 247 268 267
+element236 indices: 247 248 269 268
+element237 indices: 248 249 270 269
+element238 indices: 249 250 271 270
+element239 indices: 250 251 272 271
+element240 indices: 251 252 273 272
+element241 indices: 253 254 275 274
+element242 indices: 254 255 276 275
+element243 indices: 255 256 277 276
+element244 indices: 256 257 278 277
+element245 indices: 257 258 279 278
+element246 indices: 258 259 280 279
+element247 indices: 259 260 281 280
+element248 indices: 260 261 282 281
+element249 indices: 261 262 283 282
+element250 indices: 262 263 284 283
+element251 indices: 263 264 285 284
+element252 indices: 264 265 286 285
+element253 indices: 265 266 287 286
+element254 indices: 266 267 288 287
+element255 indices: 267 268 289 288
+element256 indices: 268 269 290 289
+element257 indices: 269 270 291 290
+element258 indices: 270 271 292 291
+element259 indices: 271 272 293 292
+element260 indices: 272 273 294 293
+element261 indices: 274 275 296 295
+element262 indices: 275 276 297 296
+element263 indices: 276 277 298 297
+element264 indices: 277 278 299 298
+element265 indices: 278 279 300 299
+element266 indices: 279 280 301 300
+element267 indices: 280 281 302 301
+element268 indices: 281 282 303 302
+element269 indices: 282 283 304 303
+element270 indices: 283 284 305 304
+element271 indices: 284 285 306 305
+element272 indices: 285 286 307 306
+element273 indices: 286 287 308 307
+element274 indices: 287 288 309 308
+element275 indices: 288 289 310 309
+element276 indices: 289 290 311 310
+element277 indices: 290 291 312 311
+element278 indices: 291 292 313 312
+element279 indices: 292 293 314 313
+element280 indices: 293 294 315 314
+element281 indices: 295 296 317 316
+element282 indices: 296 297 318 317
+element283 indices: 297 298 319 318
+element284 indices: 298 299 320 319
+element285 indices: 299 300 321 320
+element286 indices: 300 301 322 321
+element287 indices: 301 302 323 322
+element288 indices: 302 303 324 323
+element289 indices: 303 304 325 324
+element290 indices: 304 305 326 325
+element291 indices: 305 306 327 326
+element292 indices: 306 307 328 327
+element293 indices: 307 308 329 328
+element294 indices: 308 309 330 329
+element295 indices: 309 310 331 330
+element296 indices: 310 311 332 331
+element297 indices: 311 312 333 332
+element298 indices: 312 313 334 333
+element299 indices: 313 314 335 334
+element300 indices: 314 315 336 335
+element301 indices: 316 317 338 337
+element302 indices: 317 318 339 338
+element303 indices: 318 319 340 339
+element304 indices: 319 320 341 340
+element305 indices: 320 321 342 341
+element306 indices: 321 322 343 342
+element307 indices: 322 323 344 343
+element308 indices: 323 324 345 344
+element309 indices: 324 325 346 345
+element310 indices: 325 326 347 346
+element311 indices: 326 327 348 347
+element312 indices: 327 328 349 348
+element313 indices: 328 329 350 349
+element314 indices: 329 330 351 350
+element315 indices: 330 331 352 351
+element316 indices: 331 332 353 352
+element317 indices: 332 333 354 353
+element318 indices: 333 334 355 354
+element319 indices: 334 335 356 355
+element320 indices: 335 336 357 356
+element321 indices: 337 338 359 358
+element322 indices: 338 339 360 359
+element323 indices: 339 340 361 360
+element324 indices: 340 341 362 361
+element325 indices: 341 342 363 362
+element326 indices: 342 343 364 363
+element327 indices: 343 344 365 364
+element328 indices: 344 345 366 365
+element329 indices: 345 346 367 366
+element330 indices: 346 347 368 367
+element331 indices: 347 348 369 368
+element332 indices: 348 349 370 369
+element333 indices: 349 350 371 370
+element334 indices: 350 351 372 371
+element335 indices: 351 352 373 372
+element336 indices: 352 353 374 373
+element337 indices: 353 354 375 374
+element338 indices: 354 355 376 375
+element339 indices: 355 356 377 376
+element340 indices: 356 357 378 377
+element341 indices: 358 359 380 379
+element342 indices: 359 360 381 380
+element343 indices: 360 361 382 381
+element344 indices: 361 362 383 382
+element345 indices: 362 363 384 383
+element346 indices: 363 364 385 384
+element347 indices: 364 365 386 385
+element348 indices: 365 366 387 386
+element349 indices: 366 367 388 387
+element350 indices: 367 368 389 388
+element351 indices: 368 369 390 389
+element352 indices: 369 370 391 390
+element353 indices: 370 371 392 391
+element354 indices: 371 372 393 392
+element355 indices: 372 373 394 393
+element356 indices: 373 374 395 394
+element357 indices: 374 375 396 395
+element358 indices: 375 376 397 396
+element359 indices: 376 377 398 397
+element360 indices: 377 378 399 398
+element361 indices: 379 380 401 400
+element362 indices: 380 381 402 401
+element363 indices: 381 382 403 402
+element364 indices: 382 383 404 403
+element365 indices: 383 384 405 404
+element366 indices: 384 385 406 405
+element367 indices: 385 386 407 406
+element368 indices: 386 387 408 407
+element369 indices: 387 388 409 408
+element370 indices: 388 389 410 409
+element371 indices: 389 390 411 410
+element372 indices: 390 391 412 411
+element373 indices: 391 392 413 412
+element374 indices: 392 393 414 413
+element375 indices: 393 394 415 414
+element376 indices: 394 395 416 415
+element377 indices: 395 396 417 416
+element378 indices: 396 397 418 417
+element379 indices: 397 398 419 418
+element380 indices: 398 399 420 419
+element381 indices: 400 401 422 421
+element382 indices: 401 402 423 422
+element383 indices: 402 403 424 423
+element384 indices: 403 404 425 424
+element385 indices: 404 405 426 425
+element386 indices: 405 406 427 426
+element387 indices: 406 407 428 427
+element388 indices: 407 408 429 428
+element389 indices: 408 409 430 429
+element390 indices: 409 410 431 430
+element391 indices: 410 411 432 431
+element392 indices: 411 412 433 432
+element393 indices: 412 413 434 433
+element394 indices: 413 414 435 434
+element395 indices: 414 415 436 435
+element396 indices: 415 416 437 436
+element397 indices: 416 417 438 437
+element398 indices: 417 418 439 438
+element399 indices: 418 419 440 439
+element400 indices: 419 420 441 440
+node1 coord: 0.000000 0.000000
+node2 coord: 0.050000 0.000000
+node3 coord: 0.100000 0.000000
+node4 coord: 0.150000 0.000000
+node5 coord: 0.200000 0.000000
+node6 coord: 0.250000 0.000000
+node7 coord: 0.300000 0.000000
+node8 coord: 0.350000 0.000000
+node9 coord: 0.400000 0.000000
+node10 coord: 0.450000 0.000000
+node11 coord: 0.500000 0.000000
+node12 coord: 0.550000 0.000000
+node13 coord: 0.600000 0.000000
+node14 coord: 0.650000 0.000000
+node15 coord: 0.700000 0.000000
+node16 coord: 0.750000 0.000000
+node17 coord: 0.800000 0.000000
+node18 coord: 0.850000 0.000000
+node19 coord: 0.900000 0.000000
+node20 coord: 0.950000 0.000000
+node21 coord: 1.000000 0.000000
+node22 coord: 0.000000 0.050000
+node23 coord: 0.050000 0.050000
+node24 coord: 0.100000 0.050000
+node25 coord: 0.150000 0.050000
+node26 coord: 0.200000 0.050000
+node27 coord: 0.250000 0.050000
+node28 coord: 0.300000 0.050000
+node29 coord: 0.350000 0.050000
+node30 coord: 0.400000 0.050000
+node31 coord: 0.450000 0.050000
+node32 coord: 0.500000 0.050000
+node33 coord: 0.550000 0.050000
+node34 coord: 0.600000 0.050000
+node35 coord: 0.650000 0.050000
+node36 coord: 0.700000 0.050000
+node37 coord: 0.750000 0.050000
+node38 coord: 0.800000 0.050000
+node39 coord: 0.850000 0.050000
+node40 coord: 0.900000 0.050000
+node41 coord: 0.950000 0.050000
+node42 coord: 1.000000 0.050000
+node43 coord: 0.000000 0.100000
+node44 coord: 0.050000 0.100000
+node45 coord: 0.100000 0.100000
+node46 coord: 0.150000 0.100000
+node47 coord: 0.200000 0.100000
+node48 coord: 0.250000 0.100000
+node49 coord: 0.300000 0.100000
+node50 coord: 0.350000 0.100000
+node51 coord: 0.400000 0.100000
+node52 coord: 0.450000 0.100000
+node53 coord: 0.500000 0.100000
+node54 coord: 0.550000 0.100000
+node55 coord: 0.600000 0.100000
+node56 coord: 0.650000 0.100000
+node57 coord: 0.700000 0.100000
+node58 coord: 0.750000 0.100000
+node59 coord: 0.800000 0.100000
+node60 coord: 0.850000 0.100000
+node61 coord: 0.900000 0.100000
+node62 coord: 0.950000 0.100000
+node63 coord: 1.000000 0.100000
+node64 coord: 0.000000 0.150000
+node65 coord: 0.050000 0.150000
+node66 coord: 0.100000 0.150000
+node67 coord: 0.150000 0.150000
+node68 coord: 0.200000 0.150000
+node69 coord: 0.250000 0.150000
+node70 coord: 0.300000 0.150000
+node71 coord: 0.350000 0.150000
+node72 coord: 0.400000 0.150000
+node73 coord: 0.450000 0.150000
+node74 coord: 0.500000 0.150000
+node75 coord: 0.550000 0.150000
+node76 coord: 0.600000 0.150000
+node77 coord: 0.650000 0.150000
+node78 coord: 0.700000 0.150000
+node79 coord: 0.750000 0.150000
+node80 coord: 0.800000 0.150000
+node81 coord: 0.850000 0.150000
+node82 coord: 0.900000 0.150000
+node83 coord: 0.950000 0.150000
+node84 coord: 1.000000 0.150000
+node85 coord: 0.000000 0.200000
+node86 coord: 0.050000 0.200000
+node87 coord: 0.100000 0.200000
+node88 coord: 0.150000 0.200000
+node89 coord: 0.200000 0.200000
+node90 coord: 0.250000 0.200000
+node91 coord: 0.300000 0.200000
+node92 coord: 0.350000 0.200000
+node93 coord: 0.400000 0.200000
+node94 coord: 0.450000 0.200000
+node95 coord: 0.500000 0.200000
+node96 coord: 0.550000 0.200000
+node97 coord: 0.600000 0.200000
+node98 coord: 0.650000 0.200000
+node99 coord: 0.700000 0.200000
+node100 coord: 0.750000 0.200000
+node101 coord: 0.800000 0.200000
+node102 coord: 0.850000 0.200000
+node103 coord: 0.900000 0.200000
+node104 coord: 0.950000 0.200000
+node105 coord: 1.000000 0.200000
+node106 coord: 0.000000 0.250000
+node107 coord: 0.050000 0.250000
+node108 coord: 0.100000 0.250000
+node109 coord: 0.150000 0.250000
+node110 coord: 0.200000 0.250000
+node111 coord: 0.250000 0.250000
+node112 coord: 0.300000 0.250000
+node113 coord: 0.350000 0.250000
+node114 coord: 0.400000 0.250000
+node115 coord: 0.450000 0.250000
+node116 coord: 0.500000 0.250000
+node117 coord: 0.550000 0.250000
+node118 coord: 0.600000 0.250000
+node119 coord: 0.650000 0.250000
+node120 coord: 0.700000 0.250000
+node121 coord: 0.750000 0.250000
+node122 coord: 0.800000 0.250000
+node123 coord: 0.850000 0.250000
+node124 coord: 0.900000 0.250000
+node125 coord: 0.950000 0.250000
+node126 coord: 1.000000 0.250000
+node127 coord: 0.000000 0.300000
+node128 coord: 0.050000 0.300000
+node129 coord: 0.100000 0.300000
+node130 coord: 0.150000 0.300000
+node131 coord: 0.200000 0.300000
+node132 coord: 0.250000 0.300000
+node133 coord: 0.300000 0.300000
+node134 coord: 0.350000 0.300000
+node135 coord: 0.400000 0.300000
+node136 coord: 0.450000 0.300000
+node137 coord: 0.500000 0.300000
+node138 coord: 0.550000 0.300000
+node139 coord: 0.600000 0.300000
+node140 coord: 0.650000 0.300000
+node141 coord: 0.700000 0.300000
+node142 coord: 0.750000 0.300000
+node143 coord: 0.800000 0.300000
+node144 coord: 0.850000 0.300000
+node145 coord: 0.900000 0.300000
+node146 coord: 0.950000 0.300000
+node147 coord: 1.000000 0.300000
+node148 coord: 0.000000 0.350000
+node149 coord: 0.050000 0.350000
+node150 coord: 0.100000 0.350000
+node151 coord: 0.150000 0.350000
+node152 coord: 0.200000 0.350000
+node153 coord: 0.250000 0.350000
+node154 coord: 0.300000 0.350000
+node155 coord: 0.350000 0.350000
+node156 coord: 0.400000 0.350000
+node157 coord: 0.450000 0.350000
+node158 coord: 0.500000 0.350000
+node159 coord: 0.550000 0.350000
+node160 coord: 0.600000 0.350000
+node161 coord: 0.650000 0.350000
+node162 coord: 0.700000 0.350000
+node163 coord: 0.750000 0.350000
+node164 coord: 0.800000 0.350000
+node165 coord: 0.850000 0.350000
+node166 coord: 0.900000 0.350000
+node167 coord: 0.950000 0.350000
+node168 coord: 1.000000 0.350000
+node169 coord: 0.000000 0.400000
+node170 coord: 0.050000 0.400000
+node171 coord: 0.100000 0.400000
+node172 coord: 0.150000 0.400000
+node173 coord: 0.200000 0.400000
+node174 coord: 0.250000 0.400000
+node175 coord: 0.300000 0.400000
+node176 coord: 0.350000 0.400000
+node177 coord: 0.400000 0.400000
+node178 coord: 0.450000 0.400000
+node179 coord: 0.500000 0.400000
+node180 coord: 0.550000 0.400000
+node181 coord: 0.600000 0.400000
+node182 coord: 0.650000 0.400000
+node183 coord: 0.700000 0.400000
+node184 coord: 0.750000 0.400000
+node185 coord: 0.800000 0.400000
+node186 coord: 0.850000 0.400000
+node187 coord: 0.900000 0.400000
+node188 coord: 0.950000 0.400000
+node189 coord: 1.000000 0.400000
+node190 coord: 0.000000 0.450000
+node191 coord: 0.050000 0.450000
+node192 coord: 0.100000 0.450000
+node193 coord: 0.150000 0.450000
+node194 coord: 0.200000 0.450000
+node195 coord: 0.250000 0.450000
+node196 coord: 0.300000 0.450000
+node197 coord: 0.350000 0.450000
+node198 coord: 0.400000 0.450000
+node199 coord: 0.450000 0.450000
+node200 coord: 0.500000 0.450000
+node201 coord: 0.550000 0.450000
+node202 coord: 0.600000 0.450000
+node203 coord: 0.650000 0.450000
+node204 coord: 0.700000 0.450000
+node205 coord: 0.750000 0.450000
+node206 coord: 0.800000 0.450000
+node207 coord: 0.850000 0.450000
+node208 coord: 0.900000 0.450000
+node209 coord: 0.950000 0.450000
+node210 coord: 1.000000 0.450000
+node211 coord: 0.000000 0.500000
+node212 coord: 0.050000 0.500000
+node213 coord: 0.100000 0.500000
+node214 coord: 0.150000 0.500000
+node215 coord: 0.200000 0.500000
+node216 coord: 0.250000 0.500000
+node217 coord: 0.300000 0.500000
+node218 coord: 0.350000 0.500000
+node219 coord: 0.400000 0.500000
+node220 coord: 0.450000 0.500000
+node221 coord: 0.500000 0.500000
+node222 coord: 0.550000 0.500000
+node223 coord: 0.600000 0.500000
+node224 coord: 0.650000 0.500000
+node225 coord: 0.700000 0.500000
+node226 coord: 0.750000 0.500000
+node227 coord: 0.800000 0.500000
+node228 coord: 0.850000 0.500000
+node229 coord: 0.900000 0.500000
+node230 coord: 0.950000 0.500000
+node231 coord: 1.000000 0.500000
+node232 coord: 0.000000 0.550000
+node233 coord: 0.050000 0.550000
+node234 coord: 0.100000 0.550000
+node235 coord: 0.150000 0.550000
+node236 coord: 0.200000 0.550000
+node237 coord: 0.250000 0.550000
+node238 coord: 0.300000 0.550000
+node239 coord: 0.350000 0.550000
+node240 coord: 0.400000 0.550000
+node241 coord: 0.450000 0.550000
+node242 coord: 0.500000 0.550000
+node243 coord: 0.550000 0.550000
+node244 coord: 0.600000 0.550000
+node245 coord: 0.650000 0.550000
+node246 coord: 0.700000 0.550000
+node247 coord: 0.750000 0.550000
+node248 coord: 0.800000 0.550000
+node249 coord: 0.850000 0.550000
+node250 coord: 0.900000 0.550000
+node251 coord: 0.950000 0.550000
+node252 coord: 1.000000 0.550000
+node253 coord: 0.000000 0.600000
+node254 coord: 0.050000 0.600000
+node255 coord: 0.100000 0.600000
+node256 coord: 0.150000 0.600000
+node257 coord: 0.200000 0.600000
+node258 coord: 0.250000 0.600000
+node259 coord: 0.300000 0.600000
+node260 coord: 0.350000 0.600000
+node261 coord: 0.400000 0.600000
+node262 coord: 0.450000 0.600000
+node263 coord: 0.500000 0.600000
+node264 coord: 0.550000 0.600000
+node265 coord: 0.600000 0.600000
+node266 coord: 0.650000 0.600000
+node267 coord: 0.700000 0.600000
+node268 coord: 0.750000 0.600000
+node269 coord: 0.800000 0.600000
+node270 coord: 0.850000 0.600000
+node271 coord: 0.900000 0.600000
+node272 coord: 0.950000 0.600000
+node273 coord: 1.000000 0.600000
+node274 coord: 0.000000 0.650000
+node275 coord: 0.050000 0.650000
+node276 coord: 0.100000 0.650000
+node277 coord: 0.150000 0.650000
+node278 coord: 0.200000 0.650000
+node279 coord: 0.250000 0.650000
+node280 coord: 0.300000 0.650000
+node281 coord: 0.350000 0.650000
+node282 coord: 0.400000 0.650000
+node283 coord: 0.450000 0.650000
+node284 coord: 0.500000 0.650000
+node285 coord: 0.550000 0.650000
+node286 coord: 0.600000 0.650000
+node287 coord: 0.650000 0.650000
+node288 coord: 0.700000 0.650000
+node289 coord: 0.750000 0.650000
+node290 coord: 0.800000 0.650000
+node291 coord: 0.850000 0.650000
+node292 coord: 0.900000 0.650000
+node293 coord: 0.950000 0.650000
+node294 coord: 1.000000 0.650000
+node295 coord: 0.000000 0.700000
+node296 coord: 0.050000 0.700000
+node297 coord: 0.100000 0.700000
+node298 coord: 0.150000 0.700000
+node299 coord: 0.200000 0.700000
+node300 coord: 0.250000 0.700000
+node301 coord: 0.300000 0.700000
+node302 coord: 0.350000 0.700000
+node303 coord: 0.400000 0.700000
+node304 coord: 0.450000 0.700000
+node305 coord: 0.500000 0.700000
+node306 coord: 0.550000 0.700000
+node307 coord: 0.600000 0.700000
+node308 coord: 0.650000 0.700000
+node309 coord: 0.700000 0.700000
+node310 coord: 0.750000 0.700000
+node311 coord: 0.800000 0.700000
+node312 coord: 0.850000 0.700000
+node313 coord: 0.900000 0.700000
+node314 coord: 0.950000 0.700000
+node315 coord: 1.000000 0.700000
+node316 coord: 0.000000 0.750000
+node317 coord: 0.050000 0.750000
+node318 coord: 0.100000 0.750000
+node319 coord: 0.150000 0.750000
+node320 coord: 0.200000 0.750000
+node321 coord: 0.250000 0.750000
+node322 coord: 0.300000 0.750000
+node323 coord: 0.350000 0.750000
+node324 coord: 0.400000 0.750000
+node325 coord: 0.450000 0.750000
+node326 coord: 0.500000 0.750000
+node327 coord: 0.550000 0.750000
+node328 coord: 0.600000 0.750000
+node329 coord: 0.650000 0.750000
+node330 coord: 0.700000 0.750000
+node331 coord: 0.750000 0.750000
+node332 coord: 0.800000 0.750000
+node333 coord: 0.850000 0.750000
+node334 coord: 0.900000 0.750000
+node335 coord: 0.950000 0.750000
+node336 coord: 1.000000 0.750000
+node337 coord: 0.000000 0.800000
+node338 coord: 0.050000 0.800000
+node339 coord: 0.100000 0.800000
+node340 coord: 0.150000 0.800000
+node341 coord: 0.200000 0.800000
+node342 coord: 0.250000 0.800000
+node343 coord: 0.300000 0.800000
+node344 coord: 0.350000 0.800000
+node345 coord: 0.400000 0.800000
+node346 coord: 0.450000 0.800000
+node347 coord: 0.500000 0.800000
+node348 coord: 0.550000 0.800000
+node349 coord: 0.600000 0.800000
+node350 coord: 0.650000 0.800000
+node351 coord: 0.700000 0.800000
+node352 coord: 0.750000 0.800000
+node353 coord: 0.800000 0.800000
+node354 coord: 0.850000 0.800000
+node355 coord: 0.900000 0.800000
+node356 coord: 0.950000 0.800000
+node357 coord: 1.000000 0.800000
+node358 coord: 0.000000 0.850000
+node359 coord: 0.050000 0.850000
+node360 coord: 0.100000 0.850000
+node361 coord: 0.150000 0.850000
+node362 coord: 0.200000 0.850000
+node363 coord: 0.250000 0.850000
+node364 coord: 0.300000 0.850000
+node365 coord: 0.350000 0.850000
+node366 coord: 0.400000 0.850000
+node367 coord: 0.450000 0.850000
+node368 coord: 0.500000 0.850000
+node369 coord: 0.550000 0.850000
+node370 coord: 0.600000 0.850000
+node371 coord: 0.650000 0.850000
+node372 coord: 0.700000 0.850000
+node373 coord: 0.750000 0.850000
+node374 coord: 0.800000 0.850000
+node375 coord: 0.850000 0.850000
+node376 coord: 0.900000 0.850000
+node377 coord: 0.950000 0.850000
+node378 coord: 1.000000 0.850000
+node379 coord: 0.000000 0.900000
+node380 coord: 0.050000 0.900000
+node381 coord: 0.100000 0.900000
+node382 coord: 0.150000 0.900000
+node383 coord: 0.200000 0.900000
+node384 coord: 0.250000 0.900000
+node385 coord: 0.300000 0.900000
+node386 coord: 0.350000 0.900000
+node387 coord: 0.400000 0.900000
+node388 coord: 0.450000 0.900000
+node389 coord: 0.500000 0.900000
+node390 coord: 0.550000 0.900000
+node391 coord: 0.600000 0.900000
+node392 coord: 0.650000 0.900000
+node393 coord: 0.700000 0.900000
+node394 coord: 0.750000 0.900000
+node395 coord: 0.800000 0.900000
+node396 coord: 0.850000 0.900000
+node397 coord: 0.900000 0.900000
+node398 coord: 0.950000 0.900000
+node399 coord: 1.000000 0.900000
+node400 coord: 0.000000 0.950000
+node401 coord: 0.050000 0.950000
+node402 coord: 0.100000 0.950000
+node403 coord: 0.150000 0.950000
+node404 coord: 0.200000 0.950000
+node405 coord: 0.250000 0.950000
+node406 coord: 0.300000 0.950000
+node407 coord: 0.350000 0.950000
+node408 coord: 0.400000 0.950000
+node409 coord: 0.450000 0.950000
+node410 coord: 0.500000 0.950000
+node411 coord: 0.550000 0.950000
+node412 coord: 0.600000 0.950000
+node413 coord: 0.650000 0.950000
+node414 coord: 0.700000 0.950000
+node415 coord: 0.750000 0.950000
+node416 coord: 0.800000 0.950000
+node417 coord: 0.850000 0.950000
+node418 coord: 0.900000 0.950000
+node419 coord: 0.950000 0.950000
+node420 coord: 1.000000 0.950000
+node421 coord: 0.000000 1.000000
+node422 coord: 0.050000 1.000000
+node423 coord: 0.100000 1.000000
+node424 coord: 0.150000 1.000000
+node425 coord: 0.200000 1.000000
+node426 coord: 0.250000 1.000000
+node427 coord: 0.300000 1.000000
+node428 coord: 0.350000 1.000000
+node429 coord: 0.400000 1.000000
+node430 coord: 0.450000 1.000000
+node431 coord: 0.500000 1.000000
+node432 coord: 0.550000 1.000000
+node433 coord: 0.600000 1.000000
+node434 coord: 0.650000 1.000000
+node435 coord: 0.700000 1.000000
+node436 coord: 0.750000 1.000000
+node437 coord: 0.800000 1.000000
+node438 coord: 0.850000 1.000000
+node439 coord: 0.900000 1.000000
+node440 coord: 0.950000 1.000000
+node441 coord: 1.000000 1.000000
+numflux: 40
+flux1 location: 421 422 value: -1.0
+flux2 location: 422 423 value: -1.0
+flux3 location: 423 424 value: -1.0
+flux4 location: 424 425 value: -1.0
+flux5 location: 425 426 value: -1.0
+flux6 location: 426 427 value: -1.0
+flux7 location: 427 428 value: -1.0
+flux8 location: 428 429 value: -1.0
+flux9 location: 429 430 value: -1.0
+flux10 location: 430 431 value: -1.0
+flux11 location: 431 432 value: -1.0
+flux12 location: 432 433 value: -1.0
+flux13 location: 433 434 value: -1.0
+flux14 location: 434 435 value: -1.0
+flux15 location: 435 436 value: -1.0
+flux16 location: 436 437 value: -1.0
+flux17 location: 437 438 value: -1.0
+flux18 location: 438 439 value: -1.0
+flux19 location: 439 440 value: -1.0
+flux20 location: 440 441 value: -1.0
+flux21 location: 21 42 value: -1.0
+flux22 location: 42 63 value: -1.0
+flux23 location: 63 84 value: -1.0
+flux24 location: 84 105 value: -1.0
+flux25 location: 105 126 value: -1.0
+flux26 location: 126 147 value: -1.0
+flux27 location: 147 168 value: -1.0
+flux28 location: 168 189 value: -1.0
+flux29 location: 189 210 value: -1.0
+flux30 location: 210 231 value: -1.0
+flux31 location: 231 252 value: -1.0
+flux32 location: 252 273 value: -1.0
+flux33 location: 273 294 value: -1.0
+flux34 location: 294 315 value: -1.0
+flux35 location: 315 336 value: -1.0
+flux36 location: 336 357 value: -1.0
+flux37 location: 357 378 value: -1.0
+flux38 location: 378 399 value: -1.0
+flux39 location: 399 420 value: -1.0
+flux40 location: 420 441 value: -1.0
+numpointsource: 0
+numBC: 1
+bc1 location: 1 value: 0.0
