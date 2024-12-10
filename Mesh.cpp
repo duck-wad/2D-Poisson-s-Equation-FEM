@@ -189,7 +189,7 @@ void Mesh::AssembleGlobalStiffness() {
 	}
 
 	//debug
-	//writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS.csv");
+	writeMatrixToCSV(globalStiffness, "GLOBAL_STIFFNESS.csv");
 }
 
 void Mesh::AssembleGlobalForce() {
@@ -205,7 +205,7 @@ void Mesh::AssembleGlobalForce() {
 	}
 
 	//debug
-	//writeVectorToCSV(globalForce, "GLOBAL_FORCE.csv");
+	writeVectorToCSV(globalForce, "GLOBAL_FORCE.csv");
 }
 
 void Mesh::ApplyBC() {
@@ -243,7 +243,6 @@ void Mesh::Solve() {
 		std::cerr << "Error: " << e.what() << std::endl;
 	}*/
 	std::vector<std::vector<double>> inverted = invertMatrix(globalStiffness);
-	//writeMatrixToCSV(inverted, "INVERTED.csv");
 	globalPotential = inverted * globalForce;
 
 	std::vector<std::vector<double>> nodeOutput(3, std::vector<double>(maxnode));

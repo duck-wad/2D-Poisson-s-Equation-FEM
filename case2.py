@@ -4,7 +4,9 @@ import numpy as np
 from matplotlib import cm
 import pandas as pd
 
-def generate_mesh(subdivisions, domain_size, input_filename, point_sources, bcs, flux_value, k):
+# CASE 2: set all boundaries to constant temperature
+
+def generate_mesh(subdivisions, domain_size, input_filename, point_sources, bottom_temp, right_temp, top_temp, left_temp, flux_value, k):
     # Generate nodes
     node_coords = [(x, y) for y in range(subdivisions + 1) for x in range(subdivisions + 1)]
 
@@ -45,19 +47,7 @@ def generate_mesh(subdivisions, domain_size, input_filename, point_sources, bcs,
             node1 = (i + 1) * (subdivisions + 1)
             node2 = node1 + (subdivisions + 1)
             fluxes.append((node1, node2, flux_value))
-        '''
-        # Bottom boundary flux
-        for j in range(subdivisions):
-            node1 = j + 1
-            node2 = node1 + 1
-            fluxes.append((node1, node2, flux_value))
 
-        # Left boundary flux
-        for i in range(subdivisions):
-          node1 = i * (subdivisions + 1) + 1
-          node2 = node1 + (subdivisions + 1)
-          fluxes.append((node1, node2, flux_value))
-        '''
         # Write flux data
         file.write(f"numflux: {len(fluxes)}\n")
         for idx, (node1, node2, value) in enumerate(fluxes, start=1):
@@ -69,14 +59,31 @@ def generate_mesh(subdivisions, domain_size, input_filename, point_sources, bcs,
             file.write(f"source{idx} element: {element} value: {value}\n")
 
         # Write boundary conditions
+        bcs = []
+        # Bottom boundary (y=0)
+        for x in range(subdivisions + 1):
+            bcs.append(((x + 1), bottom_temp))
+        
+        # Right boundary (x=subdivisions)
+        for y in range(subdivisions + 1):
+            bcs.append((((y + 1) * (subdivisions + 1)), right_temp))
+        
+        # Top boundary (y=subdivisions)
+        for x in range(subdivisions + 1):
+            bcs.append((((subdivisions) * (subdivisions + 1)) + x + 1, top_temp))
+        
+        # Left boundary (x=0)
+        for y in range(subdivisions + 1):
+            bcs.append((((y * (subdivisions + 1)) + 1), left_temp))
+        
         file.write(f"numBC: {len(bcs)}\n")
         for idx, (node, value) in enumerate(bcs, start=1):
-            file.write(f"bc{idx} location: {node} value: {value}\n")
+            file.write(f"bc{idx} location: {node} value: {value:.1f}\n")
 
     print(f"Input file '{input_filename}' has been generated.")
 
     # Visualize the mesh
-    # visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes)
+    visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes)
 
 def visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes):
     # Plot nodes
@@ -93,13 +100,13 @@ def visualize_mesh(subdivisions, domain_size, node_coords, elements, bcs, fluxes
         x_coords = [node_coords[n][0] * (domain_size / subdivisions) for n in element] + [node_coords[element[0]][0] * (domain_size / subdivisions)]
         y_coords = [node_coords[n][1] * (domain_size / subdivisions) for n in element] + [node_coords[element[0]][1] * (domain_size / subdivisions)]
         ax.plot(x_coords, y_coords, 'k-')  # Connect nodes with black lines
-
+    '''
     # Plot flux boundaries
     for node1, node2, _ in fluxes:
         x_coords = [node_coords[node1 - 1][0] * (domain_size / subdivisions), node_coords[node2 - 1][0] * (domain_size / subdivisions)]
         y_coords = [node_coords[node1 - 1][1] * (domain_size / subdivisions), node_coords[node2 - 1][1] * (domain_size / subdivisions)]
         ax.plot(x_coords, y_coords, 'g-', linewidth=2, label='Flux boundary' if 'Flux boundary' not in ax.get_legend_handles_labels()[1] else '')
-
+    '''
     # Label plot
     ax.set_title(f'Mesh Visualization with {subdivisions}x{subdivisions} Elements')
     ax.set_xlabel('X')
@@ -158,13 +165,17 @@ def plot_3d_contour(csv_file):
 # Generate input file and visualize
 input_filename = "INPUT.txt"
 output_filename = "NODE_OUTPUT.csv"
-subdivisions = 20
+subdivisions = 30
 domain_size = 1.0
 point_sources = []  # Example: [(element, value), ...]
-bcs = [(1, 0.0)]  # Example: [(node, value), ...]
-flux_value = -1.0
+# bcs = [(1, 0.0), (11, 0.0), (111, 1.0), (121, 1.0)]  # Example: [(node, value), ...] 
+bottom_temp = 100;
+right_temp = 110;
+top_temp = 120;
+left_temp = 110;
+flux_value = 0.0
 k = 1.0
 
-generate_mesh(subdivisions, domain_size, input_filename, point_sources, bcs, flux_value, k)
+generate_mesh(subdivisions, domain_size, input_filename, point_sources, bottom_temp, right_temp, top_temp, left_temp, flux_value, k)
 run_cpp_program(input_filename)
 plot_3d_contour(output_filename)

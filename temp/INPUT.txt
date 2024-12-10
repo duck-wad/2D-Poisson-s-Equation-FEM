@@ -1,0 +1,23 @@
+coeff: 1.0
+numelem: 4
+element1 indices: 1 2 5 4
+element2 indices: 2 3 6 5
+element3 indices: 4 5 8 7
+element4 indices: 5 6 9 8
+node1 coord: 0.000000 0.000000
+node2 coord: 0.500000 0.000000
+node3 coord: 1.000000 0.000000
+node4 coord: 0.000000 0.500000
+node5 coord: 0.500000 0.500000
+node6 coord: 1.000000 0.500000
+node7 coord: 0.000000 1.000000
+node8 coord: 0.500000 1.000000
+node9 coord: 1.000000 1.000000
+numflux: 4
+flux1 location: 7 8 value: -1.0
+flux2 location: 8 9 value: -1.0
+flux3 location: 3 6 value: -1.0
+flux4 location: 6 9 value: -1.0
+numpointsource: 0
+numBC: 1
+bc1 location: 1 value: 0.0

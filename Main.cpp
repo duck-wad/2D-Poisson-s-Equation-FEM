@@ -1,4 +1,5 @@
 #include <iostream>
+#include <filesystem>
 
 #include "Mesh.h"
 
@@ -7,7 +8,6 @@
 
 int main() {
 
-	//Mesh mesh("input900.txt");
 	Mesh mesh("INPUT.txt");
 
 	return 0;
